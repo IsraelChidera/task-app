@@ -10,7 +10,7 @@ type ButtonProps = {
 
 const index = ({ type, children, className, onClick, ...props }: ButtonProps) => {
     return (
-        <button type={type} onClick={onClick} className={`rounded-md py-[10px] px-[30px] bg-primary text-sm text-white ${className}`} {...props}>
+        <button type={type} onClick={onClick} className={`rounded-md py-[10px] px-[20px] bg-primary text-sm text-white ${className}`} {...props}>
             {children}
         </button>
     )
