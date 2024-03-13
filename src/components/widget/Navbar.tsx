@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaPlus } from "react-icons/fa6";
 import Button from '../elements/Button';
 import Container from '../elements/Container';

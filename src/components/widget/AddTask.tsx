@@ -27,7 +27,9 @@ type InitialValuesProps = {
 
 
 const AddTask = () => {
-    const {taskCompleted, setTaskCompleted} = useContext(TodoContext);    
+    const {taskCompleted, setTaskCompleted} = useContext(TodoContext);  
+    const {todos, setTodos} = useContext(TodoContext);
+
     const initialValues: InitialValuesProps = {
         task: "",
         tags: "",
@@ -54,8 +56,16 @@ const AddTask = () => {
     }
 
     const onTodoSubmit = (values: InitialValuesProps) => {
-        console.log(values);
-        localStorage.setItem("Todos", JSON.stringify(values));
+        const newTodo = {
+            id: todos.length + 1,
+            task: values.task,
+            tags: values.tags,
+            completed: taskCompleted,
+            startDate: new Date().toDateString(),
+        }
+        setTodos([...todos, newTodo]);      
+        
+        localStorage.setItem("Todos", JSON.stringify([...todos, newTodo]));
     }
 
 
