@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Button from '../elements/Button';
 import { Form, Formik } from 'formik';
+import { TodoContext } from '../context/TodoContext';
 
 type FormData = {
     task: string,
@@ -26,7 +27,7 @@ type InitialValuesProps = {
 
 
 const AddTask = () => {
-    const [taskCompleted, setTaskCompleted] = useState(false);
+    const {taskCompleted, setTaskCompleted} = useContext(TodoContext);    
     const initialValues: InitialValuesProps = {
         task: "",
         tags: "",
