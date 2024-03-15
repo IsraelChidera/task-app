@@ -1,13 +1,16 @@
 import { FaPlus } from "react-icons/fa6";
 import Button from '../elements/Button';
 import Container from '../elements/Container';
+import { useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
 
 const Navbar = () => {
 
-    const handleAddTask = () => {
-        
-    }
+    const { setShow } = useContext(TodoContext);
 
+    const handleTaskForm = () => {
+        setShow(true);
+    }
 
     return (
         <nav className='pt-4'>
@@ -17,7 +20,7 @@ const Navbar = () => {
                 </h1>
 
                 <div>
-                    <Button onClick={handleAddTask} className="md:block hidden">
+                    <Button onClick={handleTaskForm} className="md:block hidden">
                         Add task
                     </Button>
 

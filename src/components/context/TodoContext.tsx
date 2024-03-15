@@ -6,20 +6,19 @@ interface TodoContextType {
     setTaskCompleted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const TodoContext = createContext<TodoContextType|any>({});
+export const TodoContext = createContext<TodoContextType | any>({});
 
 export const TodoContextProvider = ({ children }: { children: React.ReactNode }) => {
-   
+
+    const [isEditing, setIsEditing] = useState<any>(false);
     const [taskCompleted, setTaskCompleted] = useState(false);
     const [todos, setTodos] = useState([]);
-
-    const addTodo = () => {
-        
-    }
+    const [show, setShow] = useState(false);
+    const [markedTodo, setMarkedTodo] = useState<any>(false);
 
     return (
-        <TodoContext.Provider value={{taskCompleted, setTaskCompleted, todos, setTodos}}>
-        { children }
+        <TodoContext.Provider value={{ markedTodo, setMarkedTodo, taskCompleted, show, setShow, setTaskCompleted, todos, setTodos, isEditing, setIsEditing }}>
+            {children}
         </TodoContext.Provider>
     )
 }

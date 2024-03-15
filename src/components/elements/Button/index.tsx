@@ -5,10 +5,11 @@ type ButtonProps = {
     className?: string,
     onClick?: any,
     type?: any,
-    props?: any
+    props?: any,
+    disable?: any
 }
 
-const index = ({ type, children, className, onClick, ...props }: ButtonProps) => {
+const index = ({ type, disable, children, className, onClick, ...props }: ButtonProps) => {
     return (
         <button type={type} onClick={onClick} className={`rounded-md py-[10px] px-[20px] bg-primary hover:bg-[#89DADE] transition-all ease-linear text-sm text-white hover:text-dark ${className}`} {...props}>
             {children}
