@@ -24,7 +24,7 @@ const Navbar = () => {
                         Add task
                     </Button>
 
-                    <FaPlus className='md:hidden block' />
+                    <FaPlus onClick={handleTaskForm} className='md:hidden block cursor-pointer' />
                 </div>
             </Container>
         </nav>

@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { FaPen } from "react-icons/fa6";
 import { useContext, useState } from 'react';
 import { TodoContext } from '../context/TodoContext';
+import MyButton from '../elements/NavButton';
 
 type TodoProps = {
     todo: string,
@@ -12,10 +13,13 @@ type TodoProps = {
     onClick?: any,
     key?: any,
     onEditClick?: any,
-    onTodoSelected?: any
+    onTodoSelected?: any,
+    onMarkTaskCompleted?: any,
+    id?: any,
+    setMarkedTodo?: any
 }
 
-const Todo = ({ key, todo, tags, startDate, onClick, onEditClick, onTodoSelected }: TodoProps) => {
+const Todo = ({ setMarkedTodo, key, todo, tags, startDate, onClick, onEditClick, onTodoSelected, onMarkTaskCompleted }: TodoProps) => {
 
 
     const { markedTodo } = useContext(TodoContext);
@@ -45,15 +49,16 @@ const Todo = ({ key, todo, tags, startDate, onClick, onEditClick, onTodoSelected
             </div>
 
             <div className='mt-4 flex space-x-3 items-center'>
-                <Button type="button" onClick={onTodoSelected} className={`w-full rounded-md py-[10px] px-[20px] ${markedTodo ? 'bg-dark': 'bg-primary'}   hover:bg-[#89DADE] transition-all ease-linear text-sm text-white hover:text-dark`}>
-                    {markedTodo ? 
-                    <div className='w-full flex justify-center items-center space-x-4'>
-                        <span>Task Completed</span> <IoCheckmarkDone className='text-2xl' />
-                    </div> : 
-                    <div className='w-full flex justify-center items-center space-x-4'>
-                        <span>Mark as complete</span> <IoCheckmarkDone className='text-2xl' />
-                    </div>}
-                </Button>
+                <Button type="button" onClick={onTodoSelected} className={`w-full rounded-md py-[10px] px-[20px] ${onMarkTaskCompleted ? 'bg-[#334]' : 'bg-primary'}    transition-all ease-linear text-sm text-white hover:text-white`}>
+                    {onMarkTaskCompleted ?
+                        <div className='w-full flex justify-center items-center space-x-4'>
+                            <span>Task Completed</span> <IoCheckmarkDone className='text-2xl' />
+                        </div> :
+                        <div className='w-full flex justify-center items-center space-x-4'>
+                            <span>Mark as complete</span> <IoCheckmarkDone className='text-2xl' />
+                        </div>}
+                </Button>                
+
                 <button type="button" onClick={onClick}>
                     <MdDelete className='text-4xl hover:text-red-700 cursor-pointer' />
                 </button>

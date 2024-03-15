@@ -89,27 +89,28 @@ const Todos = () => {
     }
 
     const handleTaskSelected = (id: any) => {
+        const check: boolean = true;
         const selectedTodo = todos.find((todo: any) => todo.id === id);
 
         selectedTodo.completed = true;
 
+
         const updatedTodos = todos.map((todo: any) => {
             if (todo.id === id) {
-                setMarkedTodo(true);
+                // setMarkedTodo(true);
+
                 return selectedTodo;
             }
             return todo;
         });
 
-    
         console.log("marked todo", markedTodo);
-
 
         setTodos(updatedTodos);
         console.log("todos", todos);
 
     };
-    
+
 
 
     return (
@@ -184,9 +185,20 @@ const Todos = () => {
                 </Formik>
             }
 
-            <Container className='grid grid-cols-3 gap-x-10 gap-y-8'>
+            <Container className='grid md:grid-cols-2 xl:grid-cols-3  gap-x-10 gap-y-8'>
                 {todos.length > 0 ? todos.map((item: any) => (
-                    <Todo key={item.id} onClick={() => onTodoDelete(item.id)} onTodoSelected={() => handleTaskSelected(item.id)} onEditClick={() => handleEditClick(item.id)} todo={item.task} tags={item.tags} startDate={item.startDate} />
+                    <Todo
+                        id={item.id}
+                        key={item.id}
+                        onClick={() => onTodoDelete(item.id)}
+                        onTodoSelected={() => handleTaskSelected(item.id)}
+                        onEditClick={() => handleEditClick(item.id)}
+                        setMarkedTodo={setMarkedTodo}
+                        todo={item.task}
+                        tags={item.tags}
+                        onMarkTaskCompleted={item.completed}
+                        startDate={item.startDate}
+                    />
                 )) : <div className='text-3xl text-white'>
                     No content
                 </div>}

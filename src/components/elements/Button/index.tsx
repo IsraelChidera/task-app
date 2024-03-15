@@ -11,7 +11,7 @@ type ButtonProps = {
 
 const index = ({ type, disable, children, className, onClick, ...props }: ButtonProps) => {
     return (
-        <button type={type} onClick={onClick} className={`rounded-md py-[10px] px-[20px] bg-primary hover:bg-[#89DADE] transition-all ease-linear text-sm text-white hover:text-dark ${className}`} {...props}>
+        <button type={type} onClick={onClick} className={`rounded-md py-[10px] px-[20px] transition-all ease-linear text-sm ${className}`} {...props}>
             {children}
         </button>
     )
