@@ -33,11 +33,9 @@ const Todo = ({ setMarkedTodo, key, todo, tags, startDate, onClick, onEditClick,
 
             <div>
                 <h2 className='border-b border-[#f7f7f7] text-[35px] break-words leading-tight pb-6'>{todo}</h2>
-                <p className='mt-6 text-sm text-[#f7f7f7] font-medium'>TAGS</p>
+                <p className='mt-6 text-sm text-[#f7f7f7] font-medium'>TAG</p>
                 <div className='mt-1 flex gap-x-3 gap-y-3 items-center flex-wrap text-sm'>
-                    <div className='bg-yellow text-dark font-semibold p-1 rounded-md'>{tags}</div>
-                    <div className='bg-yellow text-dark font-semibold p-1 rounded-md'>Contact</div>
-                    <div className='bg-yellow text-dark font-semibold p-1 rounded-md'>Productivity</div>
+                    <div className='bg-yellow text-dark font-semibold p-1 rounded-md'>{tags}</div>                    
                 </div>
 
                 <div className='mt-6'>
