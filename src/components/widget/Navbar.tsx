@@ -1,15 +1,15 @@
 import { FaPlus } from "react-icons/fa6";
-import Button from '../elements/Button';
 import Container from '../elements/Container';
 import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
-
+import NavButton from '../elements/NavButton'
 const Navbar = () => {
 
-    const { setShow } = useContext(TodoContext);
+    const { setShow, setIsEditing } = useContext(TodoContext);
 
     const handleTaskForm = () => {
         setShow(true);
+        setIsEditing(false);
     }
 
     return (
@@ -20,9 +20,9 @@ const Navbar = () => {
                 </h1>
 
                 <div>
-                    <Button onClick={handleTaskForm} className="md:block hidden">
-                        Add task
-                    </Button>
+                    <NavButton onClick={handleTaskForm} className="md:block hidden">
+                        Add Task
+                    </NavButton>                   
 
                     <FaPlus onClick={handleTaskForm} className='md:hidden block cursor-pointer' />
                 </div>

@@ -4,7 +4,6 @@ import { MdDelete } from "react-icons/md";
 import { FaPen } from "react-icons/fa6";
 import { useContext, useState } from 'react';
 import { TodoContext } from '../context/TodoContext';
-import MyButton from '../elements/NavButton';
 
 type TodoProps = {
     todo: string,

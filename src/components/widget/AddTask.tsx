@@ -21,7 +21,7 @@ type InitialValuesProps = {
 
 
 const AddTask = () => {
-    const { taskCompleted, setShow, show } = useContext(TodoContext);
+    const { taskCompleted, setIsEditing, setShow, show } = useContext(TodoContext);
     const { todos, setTodos } = useContext(TodoContext);
 
     const initialValues: InitialValuesProps = {
@@ -62,6 +62,7 @@ const AddTask = () => {
         localStorage.setItem("Todos", JSON.stringify([...todos, newTodo]));
 
         setShow(false);
+        setIsEditing(false);
     }
 
 
@@ -125,8 +126,8 @@ const AddTask = () => {
                                             </p>
                                         </div>
 
-                                        <div className='flex justify-end '>
-                                            <Button type="submit">
+                                        <div className='flex justify-end '>                                        
+                                            <Button className='bg-primary hover:bg-green-300 hover:text-dark' type="submit">
                                                 <span>Add task</span>
                                             </Button>
                                         </div>

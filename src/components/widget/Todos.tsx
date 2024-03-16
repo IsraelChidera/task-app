@@ -14,7 +14,7 @@ type InitialValuesProps = {
 
 
 const Todos = () => {
-    const { todos, markedTodo, setMarkedTodo, setTodos, taskCompleted, setShow, isEditing, setIsEditing } = useContext(TodoContext);
+    const { todos, setShow, markedTodo, setMarkedTodo, setTodos, taskCompleted, isEditing, setIsEditing } = useContext(TodoContext);
 
     const [currentTodo, setCurrentTodo] = useState<any>({});
 
@@ -84,12 +84,12 @@ const Todos = () => {
 
         let selectedTodo = todos.find((x: any) => x.id == e);
         setCurrentTodo(selectedTodo);
+        setShow(false);
 
         setIsEditing((prev: any) => !prev);
     }
 
-    const handleTaskSelected = (id: any) => {
-        const check: boolean = true;
+    const handleTaskSelected = (id: any) => {        
         const selectedTodo = todos.find((todo: any) => todo.id === id);
 
         selectedTodo.completed = true;
@@ -174,7 +174,7 @@ const Todos = () => {
                                         </div>
 
                                         <div className='flex justify-end '>
-                                            <Button type="submit">
+                                            <Button className='bg-primary hover:bg-green-300 hover:text-dark' type="submit">
                                                 <span>Update task</span>
                                             </Button>
                                         </div>
